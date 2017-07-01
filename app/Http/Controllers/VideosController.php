@@ -23,19 +23,31 @@ class VideosController extends Controller
     	//return $videos;
     	return view('videos.index',compact('videos'));
     }
-    
 
+
+    /**
+     * @param int $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function show(int $id)
     {
     	$video=Video::findOrFail($id);
     	return view('videos.show',compact('video'));
     }
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function create()
     {
         $categories=Category::pluck('name','id');
     	return view('videos.create',compact('categories'));
     }
 
+    /**
+     * @param CreateVideoRequest $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function store(CreateVideoRequest $request)
     {
     	//$input=Request::all();
@@ -46,8 +58,12 @@ class VideosController extends Controller
     	Session::flash('video_created','Twój film został dodany');
     	return redirect('videos');
     }
-    
 
+
+    /**
+     * @param int $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function edit(int $id)
     {
     	//$input=Request::all();
@@ -56,7 +72,12 @@ class VideosController extends Controller
     	return view('videos.edit',compact('video','categories'));
     }
 
-    public function update(int $id,CreateVideoRequest $request)
+    /**
+     * @param int $id
+     * @param CreateVideoRequest $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function update(int $id, CreateVideoRequest $request)
     {
     	$video=Video::findOrFail($id);
     	$video->update($request->all());
