@@ -77,7 +77,7 @@
     <!-- Footer -->
     <footer class="site-footer">
         <div class="container">
-            <p>&copy; Zuczek 2017</p>
+            <p>&copy; Zuczek - 2017</p>
         </div>
     </footer>
 
