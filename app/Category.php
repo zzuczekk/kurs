@@ -11,6 +11,6 @@ class Category extends Model
     
     public function videos()
     {
-    	return $this->belongsToMany('App\Video');
+    	return $this->belongsToMany(Video::class);
     }
 }
