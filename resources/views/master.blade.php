@@ -40,7 +40,7 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="#">
-                    SK - Laravel
+                    Zuczek - kurs
                 </a>
             </div>
 
